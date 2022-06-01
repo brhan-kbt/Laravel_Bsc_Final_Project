@@ -17,7 +17,7 @@
 
         <div class="row mb-3">
            <h1>{{$post->title}}</h1>
-            <p class="m-1 ">{{$post->description}}</p> 
+            <p class="m-1 ">{!!$post->description!!}</p> 
         </div>
         <hr>
     @endforeach

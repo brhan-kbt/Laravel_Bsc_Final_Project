@@ -34,7 +34,7 @@
     </div>
     <div class="row m-3">
         <p class="float-left">Created by: <span class="text-decoration-underline font-weight-bold">{{$post->admin->adminName}}</span></p>
-        <p class="text-justify">{{$post->description}}</p>    
+        <p class="text-justify">{!!$post->description!!}</p>    
     </div>
     <hr>
 @endforeach

@@ -20,7 +20,7 @@
                 </div>
                 <div class="row m-1">
                         <strong class="m-1">About the Church</strong>
-                        <p>{{$post->description}}</p>
+                        <p>{!!$post->description!!}</p>
                 </div>
                 <div class="row m-1">
                      @if(!Auth::guest())
