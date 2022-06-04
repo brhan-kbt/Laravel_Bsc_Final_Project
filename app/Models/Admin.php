@@ -9,11 +9,7 @@ class Admin extends Model
 {
     use HasFactory;
     
-    /**
-     * Get all of the comments for the Admin
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+   
     public function museum_records()
     {
         return $this->hasMany(MuseumRecord::class);
@@ -29,11 +25,6 @@ class Admin extends Model
         return $this->hasOne(UserAccount::class);
     }
 
-    /**
-     * Get all of the comments for the Admin
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function tithes()
     {
         return $this->hasMany(Tithe::class);

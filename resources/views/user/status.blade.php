@@ -3,6 +3,7 @@
    
 <main class="container">
     <div class="card">
+        @include('layouts.messages')
         <div class="row card-header">
             <div class="d-flex flex-column align-items-end">
                 <h3>Total Promised: {{$promises->sum('promisedAmount')}}</h3>

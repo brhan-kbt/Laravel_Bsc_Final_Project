@@ -69,6 +69,9 @@ Route::get('/admin/report/financeReport/service','AdminController@serviceReport'
 Route::controller(UserAccountController::class)->group(function(){
     Route::get('/user','user')->name('user')->middleware('member');
     Route::post('/login', 'login')->name('login');
+    Route::get('/password/check','resetPassword')->name('passwordRequest');
+    Route::post('/password/check/reset/','PasswordReset')->name('passwordReset');
+    Route::post('/password/check/reset/updatePassword','updatePassword')->name('updatePassword');
 });
 
 //Church Profile Routing
@@ -76,6 +79,8 @@ Route::resource('/pradmin/church_profile', ChurchProfileController::class);
 
 //Education Material Controller Routes
 Route::get('user/books','EducMaterialController@displayBooks');
+// Route::get('/educAdmin','EducMaterialController@home')->name('educAdmin');
+Route::get('search','EducMaterialController@search')->name('search');
 Route::get('user/articles','EducMaterialController@displayArticles');
 Route::get('user/books/{id}','EducMaterialController@download')->name('download');
 Route::get('/educAdmin','EducMaterialController@home')->name('educmgr')->middleware('educadmin');

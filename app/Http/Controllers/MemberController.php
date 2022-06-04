@@ -100,13 +100,6 @@ class MemberController extends Controller
     public function store(Request $request)
     {
 
-        // $this->validate($request, [
-        //     'title'=> 'required',
-        //     'body'=> 'required',
-        //     'cover_image'=>'image|nullable|max:1999',
-        // ]);
-
-
              $this->validate($request, [
                 'mfullname'=>'required',
                 'member-age'=>'required',
@@ -123,10 +116,6 @@ class MemberController extends Controller
                 'username'=>'required|unique:user_accounts,username',
                 'password'=>'required|min:6|max:12',
 
-
-            //  'gender'=>'required',
-            //  'birthDate'=>'required',
-            //  'relationShip'=>'required',
          ]);
 
         //handle the file upload
@@ -256,26 +245,6 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $this->validate($request, [
-               'mfullname'=>'required',
-               'member-age'=>'required',
-               'member-sex'=>'required|in:Male,Female',
-               'gfathername'=>'required',
-               'mothername'=>'required',
-               'baptismalName'=>'required',
-               'churchBaptized'=>'required',
-               'repetanceFname'=>'required',
-               'birthplace'=>'required',
-               'phone'=>'required',
-               'address'=>'required',
-               'profileImg'=>'image|nullable',
-
-
-
-        //     'gender'=>'required',
-        //     'birthDate'=>'required',
-        //     'relationShip'=>'required',
-         ]);
 
         //handle the file upload
          if($request->hasFile('profileImg')){
@@ -313,24 +282,10 @@ class MemberController extends Controller
        if($request->hasFile('profileImg')){
                   $member->profileImg=$fileNameToStore;
        }
-    //   dd($member->families);
 
        $member->save();
 
 
-
-
-        //  foreach ($member->families as $family) {
-        //      $family= new Family();
-        //      $family->fullName=$request->input('familyfullname1');
-        //      $family->age=$request->input('familyage1');
-        //      $family->gender=$request->input('familysex1');
-        //      $family->birthDate=$request->input('familydob1');
-        //      $family->relationShip=$request->input('relationship');
-        //      $family->member_id=$member->id;
-        //      $family->save();
-        //  }
-        // }
 
        return redirect('member/manage-members/')->with('success',"Registered Successfully!");
 
@@ -351,7 +306,7 @@ class MemberController extends Controller
         $messages=$this->getAllMessage();
         $notifications=$this->getNotifications();
 
-        return view('user.donate')->with('messages', $messages)->with('notifications', $notifications);
+        return view('user.status')->with('messages', $messages)->with('notifications', $notifications);
     }
 
       public function status(){

@@ -51,7 +51,7 @@
                                     <div class="mb-3">
                                         <label for="adminRole" class="form-label">Role</label>
                                         @if (Auth::user()->userType != 'super')
-                                        <select class="form-select @error('adminRole') is-invalid @enderror" value="{{ $admin->adminRole }}" disabled autocomplete="adminRole" autofocus  name="adminRole" aria-label="Default select example">
+                                        <select class="form-select @error('adminRole') is-invalid @enderror" value="{{ $admin->adminRole }}" readonly autocomplete="adminRole" autofocus  name="adminRole" aria-label="Default select example">
                                             <option value="super">{{$admin->adminRole}}</option>
                                         </select> 
                                         @else                  

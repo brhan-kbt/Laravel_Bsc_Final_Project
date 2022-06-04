@@ -103,13 +103,13 @@ main {
 }
 
 .login-row {
-    height: calc(100% -100px);
+    height: calc(100% -200px);
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .login-card {
-    height: 330px;
+    height: 350px;
     font-weight: bold;
 }
 

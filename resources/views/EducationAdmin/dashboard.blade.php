@@ -10,8 +10,7 @@
     <nav class="mt-4">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                    
                         <li class="nav-item menu-open">
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -80,9 +79,6 @@
     <div class="content">
         
         @yield('content')
-        @include('layouts.messages')
-
-        {{-- <p>This is a Finance manager dashborad.</p> --}}
 
     </div>
 

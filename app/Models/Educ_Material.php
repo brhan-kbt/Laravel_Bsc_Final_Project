@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Educ_Material extends Model
 {
     use HasFactory;
+    protected $guarded=[];
+
 }

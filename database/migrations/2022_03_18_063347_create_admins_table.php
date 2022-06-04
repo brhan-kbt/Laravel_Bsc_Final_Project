@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('adminName');
             $table->string('profileImg');
             $table->string('adminRole');
-            $table->timestamps();
         });
 
            

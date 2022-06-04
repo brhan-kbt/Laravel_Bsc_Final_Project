@@ -4,9 +4,12 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\Message;
+use App\Http\Traits\QueryMessage;
 use Auth;
 class EducAdmin
 {
+    use QueryMessage;
     /**
      * Handle an incoming request.
      *
@@ -14,6 +17,7 @@ class EducAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
+
     public function handle(Request $request, Closure $next)
     {
 

@@ -82,16 +82,6 @@
     <div class="content">
         
         @yield('content')
-
-         {{-- @include('layouts.messages') --}}
-            
-            {{-- <div style="margin-left: 30px">
-            <p class="fw-bold mt-10">This is Super Admin Dashboard! </p>
-            <p> Username: {{ Auth::user()->username }} </p>
-            <p> Password: {{ Auth::user()->password }}</p>
-            <p> Full Name: {{ Auth::user()->member->fullName }}</p>
-            <p>  Admin Id:{{ Auth::user()->admin_id }}</p>
-                 </div> --}}
     </div>
 
 </div>

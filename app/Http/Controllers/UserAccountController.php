@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UserAccount;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
 use App\Http\Traits\QueryMessage;
 
 class UserAccountController extends Controller
@@ -89,25 +92,65 @@ class UserAccountController extends Controller
         return view('financeAdmin.dashboard');
     }
 
-     public function educmgr()
-    {
-        return view('EducationAdmin.dashboard');
-    }
+   
+     public function PasswordReset(Request $request)
+     {
+         $username=$request->input('username');
+         $data=UserAccount::where('username',$username)->get();
 
+         return view('auth.passwords.reset')->with('username',$username);
+     }
     
+     public function resetPassword()
+     {
+         return view('auth.passwords.email');
+     }
+
+     public function updatePassword(Request $request)
+     {
+        $username=$request->input('username');
+        $newPassword=Hash::make($request->input('newPassword'));
+        $confirmPassword=Hash::make($request->input('confirmPassword'));
+        $users=UserAccount::where('username',$username)->get();
+        if ($request->input('newPassword') === $request->input('confirmPassword')) {
+            foreach ($users as $user) {
+                $user->password=$newPassword;
+                $user->save();
+            }
+
+            return redirect('/login');
+        }
+     }
+
+     
     public function login(Request $request)
     {
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],
         ]);
- 
+        
+        // dd($credentials['username']);
+       
         if (Auth::attempt($credentials)) {
             
             $request->session()->regenerate();
 
-            if(Auth::user()->userType=='member'){
-                    return redirect()->route('user');
+            if(Auth::user()->userType=='member' ){
+                if (Auth::user()->member->status=="1") {
+                 return redirect()->route('user');
+                 
+                }
+                else{
+                    // $this->guard()->logout();
+
+                    $request->session()->invalidate();
+
+                    $request->session()->regenerateToken();
+                    return back()->withErrors([
+                        'username' => 'Your Account is inActive. Please contact Admin.',
+                    ]);
+                }
             }
             else if(Auth::user()->userType=='super'){
                  return redirect()->route('admin');
@@ -128,9 +171,13 @@ class UserAccountController extends Controller
                  return redirect()->route('educmgr');
             }
         }
- 
-        return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ]);
+       
+        else{
+          return back()->withErrors([
+             'username' => 'InValid credentials.(Username or Password)',
+                ]);
+        }
+       
     }
+
 }

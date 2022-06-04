@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('address');
             $table->string('profileImg');
             $table->string('status');
-            $table->timestamps();
         });
 
          DB::table('members')->insert([

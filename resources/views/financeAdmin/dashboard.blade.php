@@ -106,10 +106,6 @@
     <div class="content">
         
         @yield('content')
-        @include('layouts.messages')
-
-        {{-- <p>This is a Finance manager dashborad.</p> --}}
-
     </div>
 
 </div>

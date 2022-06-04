@@ -163,7 +163,7 @@
                 <a class="navbar-brand align-items-center d-flex" href="{{ url('/') }}">
                  <div class="px-2"><img style="border-radius: 50%" width="60px" height="60px" src="{{ asset('images/logo.jpg') }}"  alt=""></div>
                  <span>|</span>
-                 <div class="px-2 pt-1">ምስካየ ህዙናን መዳናለም ቤ/ክ</div> 
+                 <div class="px-2 pt-1">ምስካየ ህዙናን መድኃኔዓለም ቤ/ክ</div> 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

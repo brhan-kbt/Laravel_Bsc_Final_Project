@@ -33,13 +33,7 @@
                     <td>
                         <div class="d-flex">
                             <a href="{{action('MessageController@show',$message->id)}}" class="text-sm text-success mr-1">Detail</a>
-                        
-{{--                         
-                            {!!Form::open(['action'=>['MessageController@destroy', $message->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
-                            {{Form::hidden('_method','DELETE')}}
-                            {{Form::submit('Delete', ['class'=>'btn-sm btn-outline-danger'])}}
-                            {!!Form::close()!!}  --}}
-
+ 
 
                         </div>
                         

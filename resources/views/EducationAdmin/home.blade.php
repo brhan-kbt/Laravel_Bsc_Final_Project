@@ -1,4 +1,4 @@
-@extends('pradmin.dashboard')
+@extends('EducationAdmin.dashboard')
 @section('content')
 
  <div class="container-fluid">
@@ -8,9 +8,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{$events}}</h3>
+                <h3>{{$books->count()}}</h3>
 
-                <p>Total Events Created</p>
+                <p>Total  Books</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -23,9 +23,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$records}}</h3>
+                <h3>{{$articles->count()}}</h3>
 
-                <p>Total Museum Records</p>
+                <p>Total Articles</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -53,7 +53,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$notifications->count()}}</h3>
+                <h3>2</h3>
 
                 <p>Total New Notification</p>
               </div>

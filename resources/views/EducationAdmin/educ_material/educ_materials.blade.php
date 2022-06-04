@@ -9,11 +9,12 @@
           <h4>List of Education Materials!</h4>
         </div>
         <div class="col-md-6">
-          <input type="text" name="search" placeholder="Enter search key" class="form-control">
+          <input type="text" id="search" name="q" placeholder="Enter search key" class="form-control search-input">
         </div>
       </div>
+      
     </div>
-    <div class="card-body">
+    <div class="card-body search-result">
        @if(count($books)>0)
             @foreach($books as $book)
       <div class="row">
@@ -23,7 +24,7 @@
          <div class="col-md-8">
             <h4 class="">{{ $book->title }}: <span class="fw-bold">{{ $book->type }}</span></h4>
             <a href="#" class="text-info fw-bold mb-2">{{$book->Author}}</a>
-            <p>{{$book->description}}</p>
+            <p>{!!$book->description!!}</p>
             <div class="float-right">
               <p> <span class="fw-bold"> Published Date: </span> {{$book->publishDate}}</p>
               <a href="{{route('download', $book->id)}}" class="btn btn-primary float-right">Download</a>

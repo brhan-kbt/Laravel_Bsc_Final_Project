@@ -29,7 +29,7 @@
         </div>
 
 
-  
+
                       <!-- Sidebar Menu -->
                 <nav class="mt-4">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -68,7 +68,7 @@
                                         <p>Promise Status</p>
                                         </a>
                                     </li>
-                                    
+
                                     </ul>
                                 </li>
 
@@ -93,7 +93,7 @@
                                         <p>Articles</p>
                                         </a>
                                     </li>
-                                    
+
                                     </ul>
                                 </li>
 
@@ -134,7 +134,7 @@
 
 <div class="content-wrapper">
     <div class="content-header">
-      
+
     </div>
 
 
@@ -142,8 +142,6 @@
     <div class="content">
 
         @yield('content')
-        @include('layouts.messages')
-
     </div>
 
 </div>

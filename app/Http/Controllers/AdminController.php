@@ -30,7 +30,7 @@ class AdminController extends Controller
 
    public function __construct()
     {
-        $this->middleware('super')->except('edit');
+        $this->middleware('super')->except(['edit','update']);
     }
     
     
@@ -54,9 +54,7 @@ class AdminController extends Controller
     
    public function index(){
 
-      /**$posts=Event::orderBy('created_at','desc')->get();
-        
-      return view('event_museum_record_admin.posts.event')->with('posts',$posts);*/
+
 
       $mgrs=Admin::all();
       $messages = $this->getAllMessage();
@@ -65,7 +63,6 @@ class AdminController extends Controller
 
       return view('super-admin.indexAdmin')->with('mgrs', $mgrs)->with('messages', $messages)->with('notifications', $notifications);
 
-        //  dd($mgrs->user->username);
 
    }
     /**
@@ -184,9 +181,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
                
-        // $this->validate($request, [
-        //     'profileImg'=>'image|nullable',
-        // ]);
+       
 
          if($request->hasFile('profileImg')){
              //get file name extension
@@ -259,32 +254,24 @@ class AdminController extends Controller
         $members = Member::all();
         $pdf = PDF::loadView('super-admin.report.member', ['members' => $members]);
         return$pdf->setPaper('a4')->stream();
-        // return view('super-admin.report.member')->with('messages', $messages)
-        //                                 ->with('notifications', $notifications)
-        //                                 ->with('members', $members);
+      
     }
 
     public function financeReport(){
         $messages=$this->getAllMessage();
         $notifications=$this->getNotifications();
 
-         $tithes=Tithe::all();
-         $offerings=Offering::all();
-         $servicePayments=ServicePayment::all();
-         $promises=Promise::all();
+        $tithes=Tithe::all();
+        $offerings=Offering::all();
+        $servicePayments=ServicePayment::all();
+        $promises=Promise::all();
 
-         $pdf = PDF::loadView('super-admin.report.finance', [
-             'tithes' => $tithes, 
-             'offerings'=>$offerings, 
-             'servicePayments'=>$servicePayments, 
+        $pdf = PDF::loadView('super-admin.report.finance', [
+             'tithes' => $tithes,
+             'offerings'=>$offerings,
+             'servicePayments'=>$servicePayments,
              'promises'=>$promises]);
-                return$pdf->setPaper('a4')->stream();
-        // return view('super-admin.report.finance')->with('messages', $messages)
-        //                                 ->with('notifications', $notifications)
-        //                                 ->with('tithes', $tithes)
-        //                                 ->with('offerings', $offerings)
-        //                                 ->with('servicePayments', $servicePayments)
-        //                                 ->with('promises', $promises);
+        return$pdf->setPaper('a4')->stream();
     }
 
     public function managersReport(){

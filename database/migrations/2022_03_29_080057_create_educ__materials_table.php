@@ -22,7 +22,6 @@ return new class extends Migration
             $table->mediumText('description');
             $table->string('cover_image');
             $table->string('filename');
-            $table->timestamps();
         });
     }
 

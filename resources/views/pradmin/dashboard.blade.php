@@ -99,13 +99,6 @@
     <div class="content">
         
         @yield('content')
-        @include('layouts.messages')
-
-        {{-- <p>{{$events}}</p>
-        <p>{{$records}}</p> --}}
-
-
-
     </div>
 
 </div>

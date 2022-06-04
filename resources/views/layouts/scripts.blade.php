@@ -1,5 +1,5 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/pgbw95hh8z8fq85pm0bvuwgdvc553hj53x8p9fgh98o7axvn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
@@ -12,6 +12,7 @@
     $(document).ready(function(){
 
         $('#ad_form').on('click', function(){
+            
                 var html =`<tr>
                     <div class="row">
                         <td>2</td>
@@ -22,13 +23,13 @@
                         <td>
                              <input type="number" name="familyage1[]" class="form-control" id="familyage1" placeholder="">
                         </td>
-                        
-                      
+
+
 
                         <td>
                             <input type="text" name="familydob1[]" class="form-control " id="familydob1" placeholder="01/01/2022">
                         </td>
-                    
+
                         <td>
                             <select class="form-select" name="relationship[]" aria-label="Default select example">
                             <option selected></option>
@@ -50,6 +51,40 @@
 
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".search-input").on('keyup', function(){
+            var _q=$(this).val();
+            if(_q.length>=1){
+                $.ajax({
+                    url:"{{url('search')}}",
+                    data:{
+                        q:_q
+                    },
+                    dataType:'json',
+                    beforeSend:function(){
+                        $(".search-result").html('<li class="list-group-item">Loading...</li>')
+                    },
+                    success:function(res){
+                        // console.log(res);
+                       var _html='<div class="row >';
+                       $.each(res.data, function(index, data){
+                            _html += '<div class="card p-4"> <h4 class="text-danger fw-bold">Title:'+data.title+'</h4><img class="col-md-6 p-2" height="300px" width="100px" src="/storage/educ_photo/'+data.cover_image+'"';
+                            _html +='<p></p>';
+                            _html += '<h5 class="text-info fw-bold">Author:'+data.Author+'</h5>';
+                            _html += '<h5 class="text-info fw-bold">Type:'+data.type+'</h5>';
+                            _html += '<p  class="">Description:'+data.description+'</p>';
+                            _html += '<div class="float-right"><a href="{{route('download','1')}}" class="btn btn-primary float-right col-md-2 mb-5">Download</a></div> ';
+                            _html +='</hr> </div>';
+                       });
+                        _html  +='</div>';
+                        $(".search-result").html(_html);
+                    }
+                })
+            }
+        });
+    });
+</script>
 @stack('scripts')
 
 <script>

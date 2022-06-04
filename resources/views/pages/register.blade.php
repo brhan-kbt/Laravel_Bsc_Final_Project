@@ -12,7 +12,7 @@
                     @csrf
                     {{-- @method('POST') --}}
                     
-                    {{-- {{$errors}} --}}
+                    @include('layouts.messages')
 
                         <div class="badge bg-info text-wrap h4 text-dark text-left mb-3 fw-bold font-italic text-decoration-underline">1. Fill Personal Information Below</div>
                    
@@ -211,20 +211,8 @@
                              <input type="number" name="familyage1[]" class="form-control" id="familyage1" placeholder="">
                         </td>
 
-                        {{-- <td>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="familysex1[]" id="male" value="Male">
-                                <label class="form-check-label" for="male">Male</label>
-                            </div>
-                            
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="familysex1[]" id="female" value="Female">
-                                <label class="form-check-label" for="female">Female</label>
-                            </div>
-                        </td> --}}
-
                         <td>
-                            <input type="text" name="familydob1[]" class="form-control " id="familydob1" placeholder="01/01/2022">
+                            <input type="date" name="familydob1[]" class="form-control " id="familydob1" placeholder="01/01/2022">
                         </td>
                     
                         <td>
@@ -288,7 +276,7 @@
                 <div class="pt-4 text-center">                  
                     <button type="submit" class="btn btn-primary btn-lg h-20">Click Here To Register</button>
                 </div>
-                    <h5 class="text-left fw-bold">Have an account, <a class=" fw-bold btn btn-link" >Login Here</a></h5> 
+                    <h5 class="text-left fw-bold">Have an account? <a href="/login" class=" fw-bold btn btn-link" >Login Here</a></h5> 
 
                 </form>
            

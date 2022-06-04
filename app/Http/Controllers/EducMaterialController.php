@@ -16,22 +16,27 @@ class EducMaterialController extends Controller
     
       public function __construct()
     {
-        $this->middleware('educadmin', ['except'=>['displayBooks','displayArticles','download']]);
+        $this->middleware('educadmin', ['except'=>['displayBooks','displayArticles','download', 'search']]);
     }
 
     public function home(){
         $messages=$this->getAllMessage();
         $notifications=$this->getNotifications();
 
+        $books=Educ_Material::all()->where('type','Book');
+        $articles=Educ_Material::all()->where('type','Article');;
+
         $notifications=$this->getNotifications();
-        return view('EducationAdmin.dashboard')->with('messages', $messages)->with('notifications', $notifications);
+        return view('EducationAdmin.home')
+                    ->with('messages', $messages)->with('notifications', $notifications)
+                    ->with('books', $books)->with('articles', $articles);
     }
     
     public function displayBooks(){
         $messages=$this->getAllMessage();
         $notifications=$this->getNotifications();
 
-        $books=Educ_Material::all()->where('type','book');
+        $books=Educ_Material::all()->where('type','Book');
         
         return view('EducationAdmin.educ_material.educ_materials')->with('books',$books)->with('messages', $messages)->with('notifications', $notifications);
     }
@@ -40,12 +45,57 @@ class EducMaterialController extends Controller
         $messages=$this->getAllMessage();
         $notifications=$this->getNotifications();
 
-        $books=Educ_Material::all()->where('type','article');;
+        $books=Educ_Material::all()->where('type','Article');;
         return view('EducationAdmin.educ_material.educ_materials')->with('books',$books)->with('messages', $messages)->with('notifications', $notifications);
     }
-    
-    public function download($id){
+    public function search(Request $request){
+        if ($request->has('q')) {
+            $q=$request->q;
+            $results=Educ_Material::where('title', 'like', '%'.$q.'%')->get();
+            return response()->json(['data'=>$results]);
 
+
+            //          $output='';
+    // if(count($results)>0){
+
+    //      $output ='
+    //         <div class="row">
+    //         <div class="col-md-8">';
+        
+    //             foreach($results as $row){
+    //                 $output .='
+    //                 <div class="row">
+    //                 <div class="col-md-4">
+    //                     <img style="width:100%; height:90%" src="/storage/educ_photo/'.$row->cover_image.'" >
+    //                 </div>
+    //                 <div class="col-md-8">
+    //                     <h4 class="">'. $book->title .': <span class="fw-bold">'.$book->type .'</span></h4>
+    //                     <a href="#" class="text-info fw-bold mb-2">'.$book->Author .'</a>
+    //                     <p>'.$book->description.'</p>
+    //                     <div class="float-right">
+    //                     <p> <span class="fw-bold"> Published Date: </span> {{$book->publishDate}}</p>
+    //                     <a href="'.route('download', $book->id).'" class="btn btn-primary float-right">Download</a>
+    //                     </div>
+    //                 </div>
+    //                 </div>';
+    //             }
+
+    //      $output .= '
+    //          </div>
+    //         </div>';
+    // }
+    // else{
+
+    //     $output .='No results';
+
+    // }
+
+    // return $output;
+
+    // }
+        }
+    }
+    public function download($id){
        $file=Educ_Material::find($id);
        return  response()->download(public_path('storage/educ_file/'.$file->filename));
     }
@@ -278,7 +328,7 @@ class EducMaterialController extends Controller
         $book->type=$request->input('type');
         $book->publishDate=$request->input('publishDate');
         $book->description=$request->input('description');
-        if($request->hasFile('cover_image)')){
+        if($request->hasFile('cover_image')){
            $book->cover_image= $coverImageToStore;
         }
         if($request->hasFile('filename')){

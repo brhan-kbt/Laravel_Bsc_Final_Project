@@ -58,27 +58,48 @@ class MessageController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, [
+        if (Auth::user()) {
+            $this->validate($request, [
             'title'=>'required',
             'message'=>'required',
             'reciepent_id'=>'required'
         ]);
+        }
+        else{
+            $this->validate($request, [
+            'title'=>'required',
+            'message'=>'required',
+        ]);
+        }
 
 
         $message= new Message();
-        if (Auth::user()->userType ==='member') {
-            $message->senderName= Auth::user()->member->fullName;
+        if (Auth::user()) {
+            if (Auth::user()->userType ==='member') {
+                $message->senderName= Auth::user()->member->fullName;
+            } else {
+                $message->senderName= Auth::user()->admin->adminName;
+            }
+        $message->reciepent_id= $request->input('reciepent_id');
+
         }
         else{
-            $message->senderName= Auth::user()->admin->adminName;
+            $message->senderName= $request->input('senderName');
+            $message->reciepent_id= 3;
+
         }
         $message->title= $request->input('title');
         $message->email= $request->input('email');
         $message->message= $request->input('message');
         $message->status= 'unseen';
-        $message->reciepent_id= $request->input('reciepent_id');
         $message->save();
 
+        if(Auth::user()){
+           return redirect('message');
+        }
+        else{
+           return redirect('contact')->with('success','Thank You for your feedback!');
+        }
         // return redirect('message')->with('success','Thank You for your feedback!');
     }
 

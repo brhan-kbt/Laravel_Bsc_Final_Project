@@ -5,10 +5,10 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("#add_form").on("click", function () {
-        alert("");
+        // alert("");
          var html = `<tr>
                      <div class="row">
-                         <td>1</td>
+                         <td>2</td>
                          <td>
                              <input type="text" name="familyfullname1[]" class="form-control" id="familyfullname1" placeholder="">
                          </td>
@@ -18,7 +18,7 @@ $(document).ready(function () {
                          </td>
 
                          <td>
-                             <input type="text" name="familydob1[]" class="form-control " id="familydob1" placeholder="01/01/2022">
+                             <input type="date" name="familydob1[]" class="form-control " id="familydob1" placeholder="01/01/2022">
                          </td>
 
                          <td>
