@@ -53,46 +53,6 @@ class EducMaterialController extends Controller
             $q=$request->q;
             $results=Educ_Material::where('title', 'like', '%'.$q.'%')->get();
             return response()->json(['data'=>$results]);
-
-
-            //          $output='';
-    // if(count($results)>0){
-
-    //      $output ='
-    //         <div class="row">
-    //         <div class="col-md-8">';
-        
-    //             foreach($results as $row){
-    //                 $output .='
-    //                 <div class="row">
-    //                 <div class="col-md-4">
-    //                     <img style="width:100%; height:90%" src="/storage/educ_photo/'.$row->cover_image.'" >
-    //                 </div>
-    //                 <div class="col-md-8">
-    //                     <h4 class="">'. $book->title .': <span class="fw-bold">'.$book->type .'</span></h4>
-    //                     <a href="#" class="text-info fw-bold mb-2">'.$book->Author .'</a>
-    //                     <p>'.$book->description.'</p>
-    //                     <div class="float-right">
-    //                     <p> <span class="fw-bold"> Published Date: </span> {{$book->publishDate}}</p>
-    //                     <a href="'.route('download', $book->id).'" class="btn btn-primary float-right">Download</a>
-    //                     </div>
-    //                 </div>
-    //                 </div>';
-    //             }
-
-    //      $output .= '
-    //          </div>
-    //         </div>';
-    // }
-    // else{
-
-    //     $output .='No results';
-
-    // }
-
-    // return $output;
-
-    // }
         }
     }
     public function download($id){

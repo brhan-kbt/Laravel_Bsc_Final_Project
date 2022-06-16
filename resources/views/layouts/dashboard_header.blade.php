@@ -7,6 +7,8 @@
             <title> @yield('dashboardtitle') </title>
             <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+   
+            <link style="border-radius: 50%" rel = "icon" href = "{{asset('images/logo2.png')}}" type = "image/x-icon">
 
             <link rel="stylesheet" href="{{asset('css/app.css')}}">
             <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">

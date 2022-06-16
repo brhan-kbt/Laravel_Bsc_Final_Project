@@ -27,6 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/carousel/">
 
+    <link rel = "icon" href = "{{asset('images/logo2.png')}}" type = "image/x-icon">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">

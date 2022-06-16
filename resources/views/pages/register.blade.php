@@ -12,7 +12,7 @@
                     @csrf
                     {{-- @method('POST') --}}
                     
-                    @include('layouts.messages')
+                    {{-- @include('layouts.messages') --}}
 
                         <div class="badge bg-info text-wrap h4 text-dark text-left mb-3 fw-bold font-italic text-decoration-underline">1. Fill Personal Information Below</div>
                    

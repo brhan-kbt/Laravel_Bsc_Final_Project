@@ -10,6 +10,12 @@ class Admin extends Model
     use HasFactory;
     
    
+    
+     public function user()
+    {
+        return $this->hasOne(UserAccount::class);
+    }
+
     public function museum_records()
     {
         return $this->hasMany(MuseumRecord::class);
@@ -20,10 +26,6 @@ class Admin extends Model
         return $this->hasMany(Event::class);
     }
 
-     public function user()
-    {
-        return $this->hasOne(UserAccount::class);
-    }
 
     public function tithes()
     {

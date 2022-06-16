@@ -54,8 +54,6 @@ class AdminController extends Controller
     
    public function index(){
 
-
-
       $mgrs=Admin::all();
       $messages = $this->getAllMessage();
       $notifications = $this->getNotifications();
@@ -90,7 +88,6 @@ class AdminController extends Controller
             'adminName'=>'required',
             'username'=>'required',
             'password'=>'required|min:8|max:12',
-            // 'profileImg'=>'required|image',
             'adminRole'=>'required',
         ]);
 
