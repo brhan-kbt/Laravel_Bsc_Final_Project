@@ -8,7 +8,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{$aMember}}</h3>
+                <h3>{{$aMember + $iaMember}}</h3>
 
                 <p>Total Members</p>
               </div>

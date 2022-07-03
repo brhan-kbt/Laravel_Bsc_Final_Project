@@ -55,7 +55,6 @@ class PromiseController extends Controller
     {
 
          $this->validate($request,[
-            // 'memberName'=>'required',
             'promisedAmount'=>'required',
             'paidAmount'=>'required',
             'balance'=>'required',
@@ -86,7 +85,7 @@ class PromiseController extends Controller
         }
         $promise->save();
         
-        return redirect(url()->previous())->with('success', 'Thank You for Ur donation');
+        return redirect('/user/promise_status');
     }
 
     /**

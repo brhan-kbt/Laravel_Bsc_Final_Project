@@ -32,6 +32,12 @@ class PagesController extends Controller
     {
                 return view('pages.contactus');
 
+    } 
+    
+    public function services()
+    {
+                return view('pages.services');
+
     }
 
      public function museum()

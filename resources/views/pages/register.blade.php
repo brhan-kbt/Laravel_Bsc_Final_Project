@@ -158,7 +158,7 @@
                     <div class="row ">
                         <div class="col-8 mb-3">
                             <label for="address">Address<span class="text-danger">*</span></label>
-                            <textarea name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}"  autocomplete="address" autofocus id="address" cols="" rows=""></textarea>
+                            <textarea name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}"  autocomplete="address" autofocus id="address" cols="" rows="">{{ old('address') }}</textarea>
                         
                             @error('address')
                                     <span class="invalid-feedback" role="alert">

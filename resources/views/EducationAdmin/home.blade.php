@@ -53,7 +53,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>2</h3>
+                <h3>{{$notifications->count()}}</h3>
 
                 <p>Total New Notification</p>
               </div>

@@ -172,9 +172,8 @@ class MemberController extends Controller
        $userAccount->admin_id=0;//We can not register from user side so we don't have admin->id
        $userAccount->save();
 
-       if (count($request->familyfullname1)>0) {
-          
-        for ($i=0; $i < count($request->familyfullname1) ; $i++) { 
+       if ($request->familyfullname1[0]!=null && $request->familyage1[0]!=null && $request->relationship[0]!=null && $request->familydob1[0]!=null ) {
+        for ($i=0; $i < count($request->familyfullname1); $i++) { 
             
                 $family= new Family();
                 $family->fullName=$request->familyfullname1[$i];
@@ -194,7 +193,7 @@ class MemberController extends Controller
            
        }
 
-       return redirect(url()->previous())->with('success',"Registered Successfully!");
+       return redirect('/login');
 
     }
 
@@ -306,7 +305,7 @@ class MemberController extends Controller
         $messages=$this->getAllMessage();
         $notifications=$this->getNotifications();
 
-        return view('user.status')->with('messages', $messages)->with('notifications', $notifications);
+        return view('user.donate')->with('messages', $messages)->with('notifications', $notifications);
     }
 
       public function status(){

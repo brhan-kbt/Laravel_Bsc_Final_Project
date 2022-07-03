@@ -4,7 +4,7 @@
 {{-- <div class="flex justify-center ">
 <div class="w-8/12 bg-white p-6 rounded-lg"> --}}
 <div class="container">
-<a href="posts/create" class="btn btn-primary mb-4">Create post</a>
+<a href="posts/create" class="btn btn-primary mb-4">Create New Event</a>
 
 @if(count($posts)>0)
 <div class="card shadow">

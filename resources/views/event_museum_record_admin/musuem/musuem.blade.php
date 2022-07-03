@@ -3,7 +3,7 @@
 {{-- <div class="flex justify-center ">
 <div class="w-8/12 bg-white p-6 rounded-lg"> --}}
 <div class="container">
-<a href="musuem/create" class="btn btn-primary mb-4">Create post</a>
+<a href="musuem/create" class="btn btn-primary mb-4">Create New Record</a>
 
 @if(count($posts)>0)
 <div class="card shadow">

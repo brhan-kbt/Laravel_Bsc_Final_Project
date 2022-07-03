@@ -1,7 +1,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.tiny.cloud/1/pgbw95hh8z8fq85pm0bvuwgdvc553hj53x8p9fgh98o7axvn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/rua2egwdkoe2z6f6t20i8n0vowy8vvc2hxi5frw2jmzrmq3v/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>

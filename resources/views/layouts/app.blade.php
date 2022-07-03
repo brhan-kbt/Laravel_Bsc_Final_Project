@@ -86,7 +86,7 @@
       min-width: 100%;
       height: 34rem;
       background: #000;
-      opacity: 0.4;
+      opacity: 0.6;
     }
     .carousel-item>img::before {
     content: " ";
@@ -164,7 +164,7 @@
                 <a class="navbar-brand align-items-center d-flex" href="{{ url('/') }}">
                  <div class="px-2"><img style="border-radius: 50%" width="60px" height="60px" src="{{ asset('images/logo.jpg') }}"  alt=""></div>
                  <span>|</span>
-                 <div class="px-2 pt-1">ምስካየ ህዙናን መድኃኔዓለም ቤ/ክ</div> 
+                 <div class="px-2 pt-1">ምስካየ ህዙናን መድኃኔዓለም ገዳም</div> 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -191,7 +191,9 @@
                                     <a class="nav-link" href="/museum">Museum</a>
                              </li>
 
-
+                             <li class="nav-item">
+                                    <a class="nav-link" href="/services">Services</a>
+                             </li>
                             
                             {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

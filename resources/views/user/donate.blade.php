@@ -7,7 +7,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <h4>Donattion Form for Members!</h4>
+                    <h4>Donation Form for Members!</h4>
                 </div>
                 <div class="card-body">
                         <form action="{{action('PromiseController@store')}}" method="POST" enctype="multipart/form-data">
@@ -16,7 +16,7 @@
                                     <div class="col-md-8">
                                         <div class="mb-3">
                                             <label for="memberName" class="form-label">Member Name</label>
-                                            <input type="text" name="memberName" class="form-control @error('memberName') is-invalid @enderror" value="{{ old('memberName') }}"  autocomplete="memberName" autofocus  id="email" >
+                                            <input type="text" name="memberName" class="form-control @error('memberName') is-invalid @enderror" value='{{Auth::user()->member->fullName}}' readonly  autocomplete="memberName" autofocus  >
                                             
                                             @error('memberName')
                                                 <span class="invalid-feedback" role="alert">
@@ -28,8 +28,8 @@
 
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="balance" class="form-label">Promised Amount</label>
-                                            <input type="number" name="balance" class="form-control @error('balance') is-invalid @enderror" value="{{ old('balance') }}"  autocomplete="balance" autofocus  id="balance">
+                                            <label for="balance" class="form-label">Balance</label>
+                                            <input type="number" name="balance" class="form-control @error('balance') is-invalid @enderror" value="0"  autocomplete="balance" autofocus readonly  id="balance">
 
                                             @error('balance')
                                                 <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
             <div class="col-md-4">
                 <div class="mb-3">
                     <label for="paidAmount" class="form-label">Paid Amount</label>
-                    <input type="number" name="paidAmount" class="form-control @error('paidAmount') is-invalid @enderror" value="{{ old('paidAmount') }}"  autocomplete="paidAmount" autofocus  id="paidAmount">
+                    <input type="number" name="paidAmount" class="form-control @error('paidAmount') is-invalid @enderror" value="0" readonly  autocomplete="paidAmount" autofocus  id="paidAmount">
 
                     @error('paidAmount')
                         <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
 
             <div class="col-md-4">
                 <div class="mb-3">
-                    <label for="promisedAmount" class="form-label">Balance</label>
+                    <label for="promisedAmount" class="form-label">Promised Amount</label>
                     <input type="number" name="promisedAmount" class="form-control @error('promisedAmount') is-invalid @enderror" value="{{ old('promisedAmount') }}"  autocomplete="promisedAmount" autofocus  id="promisedAmount">
 
                     @error('promisedAmount')

@@ -36,6 +36,7 @@ Route::controller(PagesController::class)->group(function(){
     Route::get('/events/upcomingevent','events');
     Route::get('/events/pastevent','events');
     Route::get('/museum','museum');
+    Route::get('/services','services');
     Route::get('/contact','contactus');
 });
 
